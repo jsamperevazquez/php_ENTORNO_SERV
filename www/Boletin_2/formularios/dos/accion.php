@@ -84,7 +84,7 @@
     }
 </style>
 
-<h1>TU CESTA</h1>
+<h1>TU COMPRA</h1>
 <span class="container">
     <?php
     $numero_bebidas = $_POST['numero_bebidas'];

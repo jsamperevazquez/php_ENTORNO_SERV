@@ -136,6 +136,7 @@
 
     button {
       display: block;
+      margin-left: 25px;;
       width: 80%;
       background: linear-gradient(135deg, #1e88e5, #1565c0);
       color: white;
@@ -227,7 +228,7 @@
       <label for="numero_bebidas">Número de bebidas</label>
       <input type="number" name="numero_bebidas" id="numero_bebidas" placeholder="bebidas" required>
 
-      <button id="seleccion">Enviar</button>
+      <button id="seleccion">Comprar</button>
     </form>
   </div>
 
