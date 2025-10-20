@@ -1,0 +1,1 @@
+<footer class="bg-dark text-white text-center py-3">© 20025 Mi Página Web -Todos los derechos reservados. </footer>
