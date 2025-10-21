@@ -2,9 +2,9 @@
 /**
  * Muestra la lista de tareas.
  */
-
 include("utils.php");
 $tareas = devolver_tareas();
+
 ?>
 
 <div class="table">
@@ -17,7 +17,7 @@ $tareas = devolver_tareas();
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($tareas as $tarea): ?>
+            <?php foreach (devolver_tareas() as $tarea): ?>
                 <tr>
                     <td><?= $tarea['id'] ?></td>
                     <td><?= htmlspecialchars($tarea['descripcion']) ?></td>

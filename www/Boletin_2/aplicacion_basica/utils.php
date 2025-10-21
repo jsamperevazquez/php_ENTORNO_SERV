@@ -1,20 +1,26 @@
 <?php
+session_start();
+
+
+if (!isset($_SESSION["tareas"])) {
+    $_SESSION["tareas"] = [];
+}
+if (!isset($_SESSION["ultimo_id"])) {
+    $_SESSION["ultimo_id"] = 0;
+}
 /**
  * Funciones de utilidad para la gestion de tareas.
  */
 
-/**
- * @var array para almacenar las tareas en memoria.
- */
-$tareas = [];
+
+
 
 /**
  * Función para devolver las tareas almacenadas.
- * @return array // Array asiciativo con las tareas almacenadas.
+ * @return array // Array asiciativo de sesion con las tareas almacenadas.
  */
 function devolver_tareas(): array {
-    global $tareas;
-    return $tareas;
+    return $_SESSION["tareas"];
 }
 
 /**
@@ -43,22 +49,23 @@ function comprobar_info(string $texto): bool {
  * Guarda una nueva tarea en el array de tareas.
  * @param string $descripcion // Descripción de la tarea.
  * @param string $estado // Estado de la tarea (por defecto "pendiente").
- * @return bool // True si se guarda correctamente, false en caso contrario.
+ * @return bool // True si se guardó correctamente, false en caso contrario.
  */
 function guardar_tareas(string $descripcion, string $estado = "pendiente"): bool {
-    global $tareas;
+
     static $id = 1;
 
     if (!comprobar_info($descripcion)) {
         return false;
     }
-
-    $tareas[] = [
-        "id" => $id++,
+    $_SESSION["ultimo_id"]++; // Va subiendo el id con la sesion del usuario
+    $_SESSION["tareas"][] = [
+        "id" => $_SESSION["ultimo_id"],
         "descripcion" => filtrar($descripcion),
         "estado" => $estado
     ];
-
+    
     return true;
 }
+
 ?>
