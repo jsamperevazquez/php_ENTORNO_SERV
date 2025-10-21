@@ -1,3 +1,6 @@
+<!-- 
+Pagina principal de la aplicacion basica de gestion de tareas. 
+-->
 <!DOCTYPE html>
 <html lang="es">
 

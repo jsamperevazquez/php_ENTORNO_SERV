@@ -1,4 +1,8 @@
 <?php
+/**
+ * Procesa el formulario de nueva tarea.
+ */
+
 include("utils.php");
 
 $tarea = $_POST["tarea"] ?? "";

@@ -1,4 +1,8 @@
 <?php
+/**
+ * Muestra la lista de tareas.
+ */
+
 include("utils.php");
 $tareas = devolver_tareas();
 ?>

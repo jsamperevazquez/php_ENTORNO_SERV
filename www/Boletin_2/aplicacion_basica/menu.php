@@ -1,3 +1,6 @@
+<!-- ---
+ * Menu lateral de la aplicacion basica de gestion de tareas.
+--- -->
 <nav class="col-md-3 col-lg-3 d-md-block bg-light sidebar">
     <div class="position-sticky">
         <ul class="nav flex-column">
@@ -9,4 +12,3 @@
         </ul>
     </div>
 </nav>
-...
