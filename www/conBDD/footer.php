@@ -1,28 +1,37 @@
-<footer class="footer">
-  <p>© 2025 <span class="brand">ÁngelDev</span>. Todos los derechos reservados.</p>
+<footer class="footer-pixel">
+  <p>© 2025 <span class="brand">PixelFactory</span> — Todos los derechos reservados 🧊</p>
 </footer>
 
 <style>
-  .footer {
-    background: linear-gradient(135deg, #000000 ,  #e3e4e5);
-    color: #fff;
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+  .footer-pixel {
+    background: repeating-linear-gradient(
+      45deg,
+      #222,
+      #222 10px,
+      #2b2b2b 10px,
+      #2b2b2b 20px
+    );
+    color: #00ffcc;
     text-align: center;
-    padding: 15px 10px;
-    font-family: "Segoe UI", sans-serif;
-    font-size: 0.95rem;
+    padding: 25px 10px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    border-top: 4px solid #00ffcc;
+    box-shadow: 0 -4px 0 #006b5b;
     position: fixed;
     bottom: 0;
     width: 100%;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+    text-shadow: 2px 2px #000;
   }
 
-  .footer .brand {
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    color: #bbdefb;
+  .footer-pixel .brand {
+    color: #ff004c;
   }
 
-  .footer p {
+  .footer-pixel p {
     margin: 0;
   }
 </style>
