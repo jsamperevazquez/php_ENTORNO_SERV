@@ -26,11 +26,6 @@ $tareas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>UD2. Tarea</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial;
-            background: #f5f5f5;
-            padding: 20px;
-        }
 
         table {
             width: 100%;
