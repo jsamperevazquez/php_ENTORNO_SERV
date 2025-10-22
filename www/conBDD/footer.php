@@ -1,5 +1,5 @@
 <footer class="footer-pixel">
-  <p>© 2025 <span class="brand">PixelFactory</span> — Todos los derechos reservados 🧊</p>
+  <p>© 2025 <span class="brand">AngMatDev</span> — Todos los derechos reservados 🧊</p>
 </footer>
 
 <style>
