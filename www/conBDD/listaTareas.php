@@ -39,7 +39,6 @@ $tareas = $stmt->fetchAll(PDO::FETCH_ASSOC);
             border: 1px solid #ddd;
             text-align: left;
         }
-
         th {
             background: #007BFF;
             color: white;
@@ -51,6 +50,10 @@ $tareas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         .btn-borrar {
             color: red;
+            text-decoration: none;
+        }
+        .btn-modificar {
+            color: green;
             text-decoration: none;
         }
     </style>
@@ -92,6 +95,9 @@ $tareas = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <td><a class="btn-borrar" href="borrar_tarea.php?id=<?= $tarea['id'] ?>"
                                         onclick="return confirm('¿Seguro que quieres borrar esta tarea?')">
                                         🗑️ Borrar</a>
+                                        <a class="btn-modificar" href="modificar_tarea.php?id=<?= $tarea['id'] ?>"
+                                        onclick="return confirm('¿Seguro que quieres modificar esta tarea?')">
+                                        <br/>✏️ Modificar</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

@@ -1,6 +1,3 @@
-<!--
-Formulario para la creación de una nueva tarea.
--->
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,7 +12,17 @@ Formulario para la creación de una nueva tarea.
     <!--header-->
     <?php
     include("header.php");
-    
+    require("conexion.php");
+
+    if (isset($_GET["id"])) {
+
+        $id = $_GET["id"];
+        $sql = "SELECT * FROM tareas WHERE id = :id";
+        $stmt = $conexion->prepare($sql);
+        $stmt->bindParam((":id"), $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
+    }
     ?>
     <div class="container-fluid">
 
@@ -27,18 +34,22 @@ Formulario para la creación de una nueva tarea.
             <main class="col-md-8 ms-sm-auto px-md-4">
                 <div
                     class="d-flex align-items-start justify-content-between flex-wrap  flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h2>Nueva Tarea</h2>
+                    <h2>Modificar Tarea</h2>
                 </div>
                 <div class="container">
                     <form class="mb-5" method="post" action="nueva.php">
                         <div class="mb-3">
-                            <input type="hidden" name="origen" value="nueva_tarea">
+                            <input type="hidden" name="origen" value="modificar_tarea">
+                            <input type="hidden" name="id" value="<?= $tarea['id'] ?>">
                             <label class="form-label">Título de la tarea</label>
-                            <input class="form-control" name="titulo" placeholder="TAREA AQUÍ" required>
+                            <input class="form-control" name="titulo" value='<?= htmlspecialchars($tarea['titulo']) ?>'
+                                required>
                             <label class="form-label">Descripción de la tarea</label>
-                            <input class="form-control" type="text" name="descripcion"  placeholder="DESCRIPCIÓN AQUÍ" required>
+                            <input class="form-control" type="text" name="descripcion"
+                                value='<?= htmlspecialchars($tarea['descripcion']) ?>' required>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 50px; width: 10em; border-radius: 10px; ">Enviar</button>
+                        <button type="submit" class="btn btn-primary"
+                            style="margin-top: 50px; width: 10em; border-radius: 10px; ">Modificar</button>
                     </form>
                 </div>
             </main>
