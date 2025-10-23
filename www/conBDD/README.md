@@ -17,14 +17,21 @@
 
 ````
 ## Descripción de la aplicación
-Pequeña aplicación diseñada en php con un CRUD para la persistencia de datos en el que se muestra una tabla html con diferentes tareas que son modificables desde el menú de acciones.
+Pequeña aplicación diseñada en php con un CRUD para la persistencia de datos en el que se muestra una tabla html con diferentes tareas que son modificables desde el menú de acciones.  
 
-## Tecnologías usadas 
-Lenguanje de programación --> **php**
-Base de datos --> **MYSQL**
-Estilos de aplicación --> **Bootstrap 5**
+
+## Tecnologías usadas  
+
+Lenguanje de programación --> **php**  
+
+Base de datos --> **MYSQL**  
+
+Estilos de aplicación --> **Bootstrap 5**  
+
 Despliegue de la aplicación --> **LAMP en Docker**
 
+
+## Ejemplo uso de la alicación  
 
 ![use of app](https://github.com/jsamperevazquez/php_ENTORNO_SERV/blob/main/www/Boletin_2/aplicacion_basica/media/uso.gif)
 
