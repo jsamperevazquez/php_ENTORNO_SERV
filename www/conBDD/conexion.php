@@ -14,7 +14,8 @@ $pass = "test";
 $db   = "practica_php";
 
 try {
-    $conexion = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $usuario, $pass);
+    // con el @ evita mostrar errores de conexión (warning)
+    @$conexion = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $usuario, $pass);
     // Configurar el modo de error de PDO a excepción
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
