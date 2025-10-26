@@ -46,6 +46,7 @@ Formulario para la creación de una nueva tarea.
     </div>
     <!--footer-->
     <?php
+    $conexion = null;
     include("footer.php");
     ?>
 </body>

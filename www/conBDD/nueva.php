@@ -57,4 +57,5 @@ if ($origen === 'nueva_tarea') {
         header("Location: index.php");
     }
 }
+$conexion = null;
 ?>

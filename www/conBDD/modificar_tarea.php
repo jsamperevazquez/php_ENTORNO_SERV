@@ -57,6 +57,7 @@
     </div>
     <!--footer-->
     <?php
+    $conexion = null;
     include("footer.php");
     ?>
 </body>

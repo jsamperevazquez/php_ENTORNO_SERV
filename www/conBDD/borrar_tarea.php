@@ -14,6 +14,7 @@ require ("conexion.php");
 
     // Redirigir de vuelta a la página de visualización de datos
     header("Location: index.php");
+    $conexion = null;
     exit();
  }else{
     // Si no se proporciona un ID, redirigir de vuelta

@@ -100,7 +100,7 @@ $tareas = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         <br/>✏️ Modificar</a>
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
+                        <?php endforeach; $conexion = null;?>
                     </table>
                 </div>
 
