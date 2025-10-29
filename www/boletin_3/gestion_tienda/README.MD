@@ -1,6 +1,6 @@
 # CRUD MVC PHP MySQL  
 
-CRUD desarrollado en POO php usando una base de datos MySQL para la persistencia de los mismos, con un despliegue en contendores usando LAMP.  
+CRUD desarrollado en POO php usando una base de datos MySQL para la persistencia de los mismos, con un despliegue en contenedores usando LAMP.  
 
 ## ESTRUCTURA DE ARCHIVOS  
 
@@ -653,7 +653,7 @@ $usuarios = UsuariosController::user_index();
 
 </html>
 ````  
-  
+
 
 
 
