@@ -1,3 +1,4 @@
+<!-- Footer de nuestra app-->
 <footer class="footer">
   <p>© 2025 <span class="brand">ÁngelDev</span>. Todos los derechos reservados.</p>
 </footer>
