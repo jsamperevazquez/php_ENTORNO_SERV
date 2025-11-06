@@ -7,6 +7,6 @@
             text-align: center;
         }
     </style>
-    <h1>MIS TAREAS</h1>
+    <h1>GESTIÓN TAREAS</h1>
     <p>Pequeña aplicación creada por Ángel Sampere</p>
 </header>

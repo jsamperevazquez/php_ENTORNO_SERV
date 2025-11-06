@@ -5,9 +5,10 @@
     <div class="position-sticky">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" href="index.php">Home</a>
-                <a class="nav-link" href="Views/Pages/init.php">inicializar(mySQLi)</a>
-                <a class="nav-link" href="nuevaForm.php">Nueva tarea</a>
+                <a class="nav-link" href="home">Home</a>
+                <a class="nav-link" href="init">inicializar<b>(mySQLi)</b></a>
+                <a class="nav-link" href="usuarios">usuarios</a>
+                <a class="nav-link" href="nuevoUsuarioForm">Nuevo Usuario<b>(PDO)</b></a>
             </li>
         </ul>
     </div>
