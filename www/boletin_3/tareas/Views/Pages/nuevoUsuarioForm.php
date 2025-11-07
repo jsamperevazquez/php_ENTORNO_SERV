@@ -18,13 +18,13 @@
                 <label for="nombre" class="col-form-label" style="margin-right: 37px;">Nombre</label>
             </div>
             <div class="col-auto">
-                <input type="texto" id="nombre" name="nombre" class="form-control" pattern="[^0-9]+" placeholder="No números" required>
+                <input type="texto" id="nombre" name="nombre" class="form-control" pattern="[^0-9]+" placeholder="solo caracteres" required>
             </div>
             <div class="col-auto">
                 <label for="apellidos" class="col-form-label" style="margin-right: 28px;">Apellidos</label>
             </div>
             <div class="col-auto">
-                <input type="texto" id="apellidos" name="apellidos" class="form-control" pattern="[^0-9]+" placeholder="No números" required>
+                <input type="texto" id="apellidos" name="apellidos" class="form-control" pattern="[^0-9]+" placeholder="solo caracteres" required>
             </div>
 
 

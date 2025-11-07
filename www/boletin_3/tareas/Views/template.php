@@ -32,8 +32,14 @@ $usuarios = Usuarios_controller::index();
             display: flex;
             flex-direction: column;
         }
-        .container-fluid{
-             flex: 1;
+
+        .container-fluid {
+            flex: 1;
+        }
+
+        input::placeholder {
+            color: #a0a0a0;
+            font-style: italic;
         }
 
         table {
