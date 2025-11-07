@@ -3,7 +3,7 @@
 /**
  * Clase para conectar a BDD MySQL
  */
-class Connection
+class ConnectionMYSQLi
 {
     // Declaramos una conexión vacía para controlar si estamos conectados
     private static $conexion = null;

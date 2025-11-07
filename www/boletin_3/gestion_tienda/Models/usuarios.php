@@ -14,9 +14,9 @@ class Usuarios
     static public function getUsuarios($tabla)
     {
         $sql = "SELECT * FROM $tabla";
-        $resultados = Connection::conexionBD()->query($sql);
+        $resultados = ConnectionMYSQLi::conexionBD()->query($sql);
         if (!$resultados) {
-            error_log("Error en la consulta: " . Connection::conexionBD()->error);
+            error_log("Error en la consulta: " . ConnectionMYSQLi::conexionBD()->error);
             return [];
         }
 
@@ -33,7 +33,7 @@ class Usuarios
      */
     static public function insertUsuarios($data)
     {
-        $conn = Connection::conexionBD();
+        $conn = ConnectionMYSQLi::conexionBD();
         $stmt = $conn->prepare("INSERT INTO usuarios (nombre, apellidos, edad, provincia)
                                 VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssis", $data['nombre'], $data['apellidos'], $data['edad'], $data['provincia']);
@@ -48,7 +48,7 @@ class Usuarios
      */
     static public function deleteUuario($id)
     {
-        $conn = Connection::conexionBD();
+        $conn = ConnectionMYSQLi::conexionBD();
         $sql = 'DELETE FROM usuarios WHERE id= ?';
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $id);
@@ -68,7 +68,7 @@ class Usuarios
      */
     static public function updateUsuarios($id, $data)
     {
-        $conn = Connection::conexionBD();
+        $conn = ConnectionMYSQLi::conexionBD();
         $sql = "UPDATE usuarios SET nombre = ?, apellidos = ?, edad = ?, provincia = ? WHERE id=$id";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ssis", $data['nombre'], $data['apellidos'], $data['edad'], $data['provincia']);

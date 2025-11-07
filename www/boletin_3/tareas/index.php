@@ -1,7 +1,7 @@
 <?php 
 require_once("Controllers/template.Controller.php");
-include_once("Controllers/usuarios.controller.php");
-include_once("Models/usuarios.php");
+include("Controllers/usuarios.controller.php");
+include("Models/usuarios.php");
 
 
 $template = new TemplateController();

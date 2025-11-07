@@ -5,7 +5,7 @@ class usuarios
 {
 
     public static function show_all_usuarios($tabla) {
-        $conn = Connection::get_connect();
+        $conn = ConnectionPDO::get_connect();
         $sql_select = "SELECT * FROM $tabla";
         $stmt = $conn->prepare($sql_select);
         $stmt->execute();
@@ -28,7 +28,7 @@ class usuarios
 
         try {
             $sql_insert = "INSERT INTO usuarios (username, nombre, apellidos, contrasena) VALUES (:username, :nombre, :apellidos, :password)";
-            $conn = Connection::get_connect();
+            $conn = ConnectionPDO::get_connect();
             $stmt = $conn->prepare($sql_insert);
             $stmt->bindParam(':username', $data['username']);
             $stmt->bindParam(':nombre', $data['nombre']);
