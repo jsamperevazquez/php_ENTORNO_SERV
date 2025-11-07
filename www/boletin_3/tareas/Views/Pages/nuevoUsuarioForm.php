@@ -3,7 +3,7 @@
         <h2>Nuevo Usuario</h2>
     </div>
     <form class="row g-3 align-items-center" method="post" action="Controllers/nuevoUsuario.php">
-        <div>
+        <div style="padding: 10%;">
             <input type="hidden" name="origen" value="nuevo_usuario">
 
             <div class="col-auto">
@@ -18,15 +18,13 @@
                 <label for="nombre" class="col-form-label" style="margin-right: 37px;">Nombre</label>
             </div>
             <div class="col-auto">
-                <input type="texto" id="nombre" name="nombre" class="form-control" required>
+                <input type="texto" id="nombre" name="nombre" class="form-control" pattern="[^0-9]+" placeholder="No números" required>
             </div>
-
-
             <div class="col-auto">
                 <label for="apellidos" class="col-form-label" style="margin-right: 28px;">Apellidos</label>
             </div>
             <div class="col-auto">
-                <input type="texto" id="apellidos" name="apellidos" class="form-control" required>
+                <input type="texto" id="apellidos" name="apellidos" class="form-control" pattern="[^0-9]+" placeholder="No números" required>
             </div>
 
 
@@ -34,7 +32,7 @@
                 <label for="inputPassword6" class="col-form-label" style="margin-right: 26px;">Password</label>
             </div>
             <div class="col-auto">
-                <input type="password" id="password" name="password" class="form-control" aria-describedby="passwordHelpInline" required>
+                <input type="password" id="password" name="password" class="form-control" aria-describedby="passwordHelpInline" minlength="8" maxlength="15" required>
             </div>
             <div class="col-auto">
                 <span id="passwordHelpInline" class="form-text">

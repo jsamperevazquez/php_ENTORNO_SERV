@@ -21,7 +21,6 @@
     letter-spacing: 1px;
     border-top: 4px solid #00ffcc;
     box-shadow: 0 -4px 0 #006b5b;
-    position: fixed;
     bottom: 0;
     width: 100%;
     text-shadow: 2px 2px #000;
