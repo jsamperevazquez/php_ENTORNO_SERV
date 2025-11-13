@@ -48,4 +48,37 @@ class usuarios
             $conn = null;
         }
     }
+
+    public static function get_user_id($id){
+        $sql_select = "SELECT * FROM usuarios WHERE id = :id";
+        $conn = ConnectionPDO::get_connect();
+        $stmt = $conn->prepare($sql_select);
+        $stmt->execute(['id' => $id]);
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $usuario ?: null;
+
+    }
+    public static function update_user($id, $data){
+        $sql_update = "UPDATE usuarios SET username = :username, nombre = :nombre, apellidos = :apellidos, contrasena = :password WHERE id = :id ";
+        $conn = ConnectionPDO::get_connect();
+        $stmt = $conn->prepare($sql_update);
+        $stmt->execute([
+            ":id" => $id,
+            ":username" => $data['username'],
+            ":nombre" => $data['nombre'],
+            ":apellidos" => $data['apellidos'],
+            ":password" => $data['password']
+        ]
+        );
+    }
+    public static function delete_user($id){
+        $sql_deltete = "DELETE FROM usuarios WHERE id = :id ";
+        $conn = ConnectionPDO::get_connect();
+        $stmt = $conn -> prepare($sql_deltete);
+        $stmt -> execute(
+            [
+                ":id" => $id
+            ]
+            );
+    }
 }

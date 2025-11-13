@@ -119,6 +119,11 @@ $usuarios = Usuarios_controller::index();
                             include ("Pages/") . $_GET["Pages"] . ".php";
                         }
                     }
+                    if (isset($_GET["Pages"])) {
+                        if ($_GET["Pages"] == "editarUsuarioForm") {
+                            include ("Pages/") . $_GET["Pages"] . ".php";
+                        }
+                    }
                     ?>
 
                 </div>

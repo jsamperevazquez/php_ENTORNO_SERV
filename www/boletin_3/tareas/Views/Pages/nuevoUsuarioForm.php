@@ -10,7 +10,7 @@
                 <label for="username" class="col-form-label" style="margin-right: 20px;">UserName</label>
             </div>
             <div class="col-auto">
-                <input type="texto" id="username"  name="username" class="form-control" required>
+                <input type="text" id="username"  name="username" class="form-control" required>
             </div>
 
 
@@ -18,18 +18,18 @@
                 <label for="nombre" class="col-form-label" style="margin-right: 37px;">Nombre</label>
             </div>
             <div class="col-auto">
-                <input type="texto" id="nombre" name="nombre" class="form-control" pattern="[^0-9]+" placeholder="solo caracteres" required>
+                <input type="text" id="nombre" name="nombre" class="form-control" pattern="[^0-9]+" placeholder="solo caracteres" required>
             </div>
             <div class="col-auto">
                 <label for="apellidos" class="col-form-label" style="margin-right: 28px;">Apellidos</label>
             </div>
             <div class="col-auto">
-                <input type="texto" id="apellidos" name="apellidos" class="form-control" pattern="[^0-9]+" placeholder="solo caracteres" required>
+                <input type="text" id="apellidos" name="apellidos" class="form-control" pattern="[^0-9]+" placeholder="solo caracteres" required>
             </div>
 
 
             <div class="col-auto">
-                <label for="inputPassword6" class="col-form-label" style="margin-right: 26px;">Password</label>
+                <label for="password" class="col-form-label" style="margin-right: 26px;">Password</label>
             </div>
             <div class="col-auto">
                 <input type="password" id="password" name="password" class="form-control" aria-describedby="passwordHelpInline" minlength="8" maxlength="15" required>
