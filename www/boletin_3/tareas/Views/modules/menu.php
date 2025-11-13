@@ -9,6 +9,9 @@
                 <a class="nav-link" href="init">inicializar<b>(mySQLi)</b></a>
                 <a class="nav-link" href="usuarios">usuarios</a>
                 <a class="nav-link" href="nuevoUsuarioForm">Nuevo Usuario<b>(PDO)</b></a>
+                <a class="nav-link" href="tareas">Lista tareas<b>(mySQLi)</b></a>
+                <a class="nav-link" href="nuevoUsuarioForm">Nueva tarea<b>(mySQLi)</b></a>
+                <a class="nav-link" href="nuevoUsuarioForm">Buscar tarea<b>(PDO)</b></a>
             </li>
         </ul>
     </div>
