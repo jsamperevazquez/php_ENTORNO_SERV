@@ -22,12 +22,5 @@ class conexionMYSQLI{
         } 
         return self::$conn;
     }
-
-
-
 }
-
-
-
-
 ?>
