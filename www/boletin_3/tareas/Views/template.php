@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <?php
-$usuarios = Usuarios_controller::index();
+if (conexionMYSQLI::db_ready()) { //Compruebo si la base de datos está levantada 
+    $usuarios = Usuarios_controller::index();
+    $tareas = TareasController::index();
+} else {
+
+    $usuarios = []; // Si no está levandata devuelvo un array vacío para que no me rompa la app
+    $tareas = [];
+}
 ?>
 <html lang="es">
 
@@ -44,7 +51,7 @@ $usuarios = Usuarios_controller::index();
 
         table {
             margin: 40px auto;
-            width: 80%;
+            width: 100%;
             border-collapse: collapse;
             background: white;
         }
@@ -99,40 +106,27 @@ $usuarios = Usuarios_controller::index();
             <main class="col-md-9 mx-auto px-md-4 text-center">
                 <div class="d-flex align-items-start justify-content-between flex-wrap  flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <?php
-                    if (isset($_GET["Pages"])) {
-                        if ($_GET["Pages"] == "usuarios") {
-                            include ("Pages/") . $_GET["Pages"] . ".php";
-                        }
-                    }
-                    if (isset($_GET["Pages"])) {
-                        if ($_GET["Pages"] == "home") {
-                            include ("Pages/") . $_GET["Pages"] . ".php";
-                        }
-                    }
-                    if (isset($_GET["Pages"])) {
-                        if ($_GET["Pages"] == "init") {
-                            include ("Pages/") . $_GET["Pages"] . ".php";
-                        }
-                    }
-                    if (isset($_GET["Pages"])) {
-                        if ($_GET["Pages"] == "nuevoUsuarioForm") {
-                            include ("Pages/") . $_GET["Pages"] . ".php";
-                        }
-                    }
-                    if (isset($_GET["Pages"])) {
-                        if ($_GET["Pages"] == "editarUsuarioForm") {
-                            include ("Pages/") . $_GET["Pages"] . ".php";
-                        }
-                    }
-                     if (isset($_GET["Pages"])) {
-                        if ($_GET["Pages"] == "tareas") {
-                            include ("Pages/") . $_GET["Pages"] . ".php";
-                        }
-                    }
-                      if (isset($_GET["Pages"])) {
-                        if ($_GET["Pages"] == "nuevaForm") {
-                            include ("Pages/") . $_GET["Pages"] . ".php";
-                        }
+                    // Página por defecto
+                    $page = isset($_GET["Pages"]) ? $_GET["Pages"] : "home";
+
+                    // Solamente permito páginas creadas
+                    $allowedPages = [
+                        "home",
+                        "usuarios",
+                        "tareas",
+                        "buscaTareas",
+                        "tareas_filtradas",
+                        "nuevoUsuarioForm",
+                        "nuevaForm",
+                        "editarUsuarioForm",
+                        "editarTareaForm",
+                        "init"
+                    ];
+                    // Si la página está en el array de permitidas
+                    if (in_array($page, $allowedPages)) {
+                        include "Pages/$page.php";
+                    } else {
+                        include "Pages/home.php"; // cargo el home
                     }
 
                     ?>

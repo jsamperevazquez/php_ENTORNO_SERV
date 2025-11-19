@@ -1,22 +1,28 @@
+<?php
+require_once __DIR__ . "/../../Controllers/tareas.controller.php";
+$id = $_GET['id'] ?? null;
+$tarea = TareasController::get_task($id);
+?>
+
 <div class="row">
     <div>
-        <h2>Nueva Tarea</h2>
+        <h2>Editar Tarea</h2>
     </div>
-    <form class="row g-3 align-items-center" method="post" action="Controllers/nueva.php">
+    <form class="row g-3 align-items-center" method="post" action="Controllers/editaTarea.php">
         <div style="padding: 10%;">
-            <input type="hidden" name="origen" value="nueva_tarea">
-
+            <input type="hidden" name="origen" value="editar_tarea">
             <div class="col-auto">
                 <label for="titulo" class="col-form-label" style="margin-right: 20px;">Titulo</label>
             </div>
             <div class="col-auto">
-                <input type="text" id="titulo" name="titulo" class="form-control" required>
+                <input type="text" id="titulo" name="titulo" class="form-control" value="<?= htmlspecialchars($tarea['titulo']) ?>" required>
+                <input type="hidden" name="id" id="id" value="<?= htmlspecialchars($tarea['id'] ?? '') ?>">
             </div>
             <div class="col-auto">
                 <label for="desripcion" class="col-form-label" style="margin-right: 37px;">Descripcion</label>
             </div>
             <div class="col-auto">
-                <input type="text" id="descripcion" name="descripcion" class="form-control" required>
+                <input type="text" id="descripcion" name="descripcion" class="form-control" value="<?= htmlspecialchars($tarea['descripcion']) ?>" required>
             </div>
             <div class="col-auto">
                 <label for="estado" class="col-form-label" style="margin-right: 28px;">Estado</label>

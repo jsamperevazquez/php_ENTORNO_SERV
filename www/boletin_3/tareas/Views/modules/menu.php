@@ -11,7 +11,7 @@
                 <a class="nav-link" href="nuevoUsuarioForm">Nuevo Usuario<b>(PDO)</b></a>
                 <a class="nav-link" href="tareas">Lista tareas<b>(mySQLi)</b></a>
                 <a class="nav-link" href="nuevaForm">Nueva tarea<b>(mySQLi)</b></a>
-                <a class="nav-link" href="nuevoUsuarioForm">Buscar tarea<b>(PDO)</b></a>
+                <a class="nav-link" href="buscaTareas">Buscar tarea<b>(PDO)</b></a>
             </li>
         </ul>
     </div>

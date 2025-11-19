@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(__FILE__) . "/../../Controllers/usuarios.controller.php");
+require_once __DIR__ . "/../../Controllers/usuarios.controller.php";
 
 $id = $_GET['id'] ?? null;
 $user = Usuarios_controller::get_user($id);
