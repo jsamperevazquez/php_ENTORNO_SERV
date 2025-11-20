@@ -2,7 +2,7 @@
     <div>
         <h2>Nuevo Usuario</h2>
     </div>
-    <form class="row g-3 align-items-center" method="post" action="Controllers/nuevoUsuario.php">
+    <form class="row g-3 align-items-center" method="post" action="Controllers/nuevoUsuario.php" accept-charset="UTF-8" >
         <div style="padding: 10%;">
             <input type="hidden" name="origen" value="nuevo_usuario">
 
@@ -18,13 +18,13 @@
                 <label for="nombre" class="col-form-label" style="margin-right: 37px;">Nombre</label>
             </div>
             <div class="col-auto">
-                <input type="text" id="nombre" name="nombre" class="form-control" pattern="[^0-9]+" placeholder="solo caracteres" required>
+                <input type="text" id="nombre" name="nombre" class="form-control" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$" placeholder="solo caracteres" required>
             </div>
             <div class="col-auto">
                 <label for="apellidos" class="col-form-label" style="margin-right: 28px;">Apellidos</label>
             </div>
             <div class="col-auto">
-                <input type="text" id="apellidos" name="apellidos" class="form-control" pattern="[^0-9]+" placeholder="solo caracteres" required>
+                <input type="text" id="apellidos" name="apellidos" class="form-control" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$" placeholder="solo caracteres" required>
             </div>
 
 

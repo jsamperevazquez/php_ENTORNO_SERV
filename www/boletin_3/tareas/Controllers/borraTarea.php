@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "tareas.controller.php";
+require("tareas.controller.php");
 /**
  * @var mixed Id de la tarea a borrar ?? si no nulo
  */

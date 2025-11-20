@@ -21,11 +21,11 @@ $user = Usuarios_controller::get_user($id);
 
         <label for="nombre" class="col-form-label">Nombre</label>
         <input type="text" id="nombre" name="nombre" class="form-control"
-          pattern="[^0-9]+" value="<?= htmlspecialchars($user['nombre'] ?? '') ?>" required>
+          pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$"  value="<?= htmlspecialchars($user['nombre'] ?? '') ?>" required>
 
         <label for="apellidos" class="col-form-label">Apellidos</label>
         <input type="text" id="apellidos" name="apellidos" class="form-control"
-          pattern="[^0-9]+" value="<?= htmlspecialchars($user['apellidos'] ?? '') ?>" required>
+          pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$"  value="<?= htmlspecialchars($user['apellidos'] ?? '') ?>" required>
 
         <label for="password" class="col-form-label">Password</label>
         <input type="password" id="password" name="password" class="form-control"

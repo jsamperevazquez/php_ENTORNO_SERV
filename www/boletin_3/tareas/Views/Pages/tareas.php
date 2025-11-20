@@ -15,14 +15,14 @@
                 <th scope="col" style="width: 150px;">Acciones</th>
             </tr>
             <?php foreach ($tareas as $tarea): ?>
-                <?php $usuario = Usuarios_controller::get_user($tarea['id_usuario']); ?>
+                <?php $usuario = Usuarios_controller::get_user($tarea['id_usuario'])?>
                 <tr>
 
                     <td><b><?= $tarea['id'] ?></b></td>
                     <td><?= $tarea['titulo'] ?></td>
                     <td><?= $tarea['descripcion'] ?></td>
                     <td><?= $tarea['estado'] ?></td>
-                    <td><?= $usuario['username'] ?></td>
+                    <td><?= $usuario['username'] ?? 'Por Asignar' ?></td>
                     <td><a class="btn btn-warning btn-editar" type="submit" href="index.php?Pages=editarTareaForm&id=<?= $tarea['id'] ?>"
                             data-bs-toggle="tooltip" data-bs-placement="top" title="Editar"
                             onclick="return confirm('¿Seguro que quieres modificar esta tarea?')">
