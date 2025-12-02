@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>doc.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #998;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #333;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #008080;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #d14;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #900;
+  font-weight: bold;
+}
+
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #458;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #000080;
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #009926;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #990073;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #0086b3;
+}
+
+.hljs-meta {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="examen-eva-1-dwcs---daw">Examen EVA 1 DWCS - DAW</h1>
+<pre><code>NOMBRE:
+</code></pre>
+<h2 id="instrucciones">Instrucciones</h2>
+<ol>
+<li>Inicia sesión en Windows con el usuario <strong>dawmddwcs</strong> y la contraseña <strong>Abc123..</strong> y abre Virtual Box.</li>
+<li>Utiliza la máquina virtual instalada en el equipo en VirtualBox. Es la misma de las tareas:
+<ul>
+<li>Usuario: ladmin</li>
+<li>Contraseña: abc123.</li>
+<li>Visual Code instalado y configurado</li>
+<li>Carpeta repositorios/docker-lamp-eva1 en el escritorio</li>
+</ul>
+</li>
+<li>Contenedores docker para arquitectura LAMP.</li>
+<li>Acceso web: localhost</li>
+<li>Acceso phpMyAdmin: localhost:8000</li>
+</ol>
+<h2 id="pifias-y-pociones">Pifias y Pociones</h2>
+<p>Tienes que desarrollar una aplicación web para una asociación de juegos de rol. A partir de la estructura base ya creada en el repositorio (www), levanta la estructura de contenedores (<strong>docker compose up -d</strong>) y programa las funcionalidades para cumplir con los requisitos de cada apartado.</p>
+<ul>
+<li><strong>index.php</strong>: edita la página principal para que cargue las partes a partir de los ficheros en la carpeta <strong>partials</strong>. Importa cada archivo parcial debajo de su comentario correspondiente. [0.5]</li>
+<li><strong>juego.php</strong>, <strong>jugadores.php</strong>, <strong>partidas.php</strong>, <strong>planificar.php</strong> y <strong>crear_partida.php</strong>: edita las páginas para incluir los ficheros parciales indicados en los comentarios. [0.5]</li>
+<li><strong>database.php</strong>: este archivo contendrá únicamente una serie de funciones que permitirán comunicarse con la base de datos. En ningún caso estas funciones interaccionarán con el usuario de ninguna forma. Programa las siguientes funciones en PHP:
+<ul>
+<li><strong>conectaMy</strong>: devuelve una conexión a la base de datos <strong>pifias</strong> mediante MySQLi orientado a objetos. [0.5]</li>
+<li><strong>conectaPDO</strong>: devuelve una conexión a la base de datos <strong>pifias</strong> mediante PDO. [0.5]</li>
+<li><strong>listaJuegos</strong>: devuelve la lista completa de juegos de la aplicación en un array. En caso de ocurrir un error, devolverá el mensaje del error. Debe usarse una conexión mediante MySQLi orientado a objetos. [0.75]</li>
+<li><strong>listaPartidas</strong>: devuelve la lista de partidas de la aplicación. Recibirá el id del juego opcionalmente. Si lo recibe, filtrará para devolver solo partidas de este juego y que sean a partir del día actual incluido (<strong>CURDATE()</strong>). En caso de ocurrir un error, devolverá el mensaje del error. Debe usarse una conexión mediante PDO. Recuerda que tendrás que recuperar información de más de una tabla. [1.25]</li>
+<li><strong>listaSocios</strong>: devuelve la lista completa de socios de la aplicación en un array. Recibirá un parámetro booleano indicando si se requiere que la lista sea de los elegibles para master de una partida o no. Si el parámetro no viene, lo ignorará. En caso de ocurrir un error, devolverá el mensaje del error. Debe usarse una conexión mediante PDO. [0.75]</li>
+<li><strong>recuperaJuego</strong>: devuelve los datos de un juego a partir de su id. En caso de ocurrir un error, devolverá el mensaje del error. Debe usarse una conexión mediante MySQLi orientado a objetos. [0.5]</li>
+<li><strong>nuevaPartida</strong>: recibe la información de una nueva partida y la guarda. Devuelve true o el mensaje de error en caso de fallar. Debe usarse una conexión mediante PDO y haciendo uso de una consulta preparada. [1.0]</li>
+</ul>
+</li>
+<li><strong>index.php</strong>: edita la página principal para cargar dinámicamente la lista de juegos (recuperados de la base de datos) manteniendo el mismo formato. Cada juego estará enlazado con <strong>juego.php</strong>, enviando a la página el id mendiante <strong>GET</strong>. [0.75]</li>
+<li><strong>juego.php</strong>: muestra los datos del juego (recuperados de la base de datos) con dos botones: partidas planificadas y planificar partida. [0.5]
+<ul>
+<li>Partidas planificadas se enlaza con el fichero <strong>partidas.php</strong>. Se le enviará el id del juego y el nombre mediante GET.</li>
+<li>Planificar partida se enlaza con el fichero <strong>planificar.php</strong>. Se le enviará el id del juego y el nombre mediante GET.</li>
+</ul>
+</li>
+<li><strong>partidas.php</strong>: mostrará en formato tabla la lista de partidas (recuperadas de la base de datos). Opcionalmente recibirá el id del juego y filtrará el resultado mostrando solo las partidas de ese juego que no hayan tenido lugar. [1.0]</li>
+<li><strong>planificar.php</strong>: cargará el formulario para crear una nueva partida. Recibirá el id del nombre y el juego. El id lo cargará en el campo oculto y el nombre en un título. Cargará la lista de socios entre los elegibles para master. Enviará la información a <strong>crear_partida.php</strong> mediante <strong>POST</strong>. [0.5]</li>
+<li><strong>crear_partida.php</strong>: recibirá la información de la partida, validará que todo esté correcto (ningún campo vacío tras haber aplicado los filtros básicos y para los id, que sean forzosamente numéricos) y la guardará en la base de datos. Mostrará un mensaje indicando si todo fue correcto o si hubo algún error. [1.0]</li>
+</ul>
+<h2 id="estructura-www">Estructura www</h2>
+<pre class="hljs"><code><div>www
+├── crear_partida.php
+├── database.php
+├── fotos
+│   ├── *.png
+├── ├── ...
+├── index.php
+├── juego.php
+├── jugadores.php
+├── partials
+│   ├── descripcion.php
+│   ├── header.php
+│   ├── menu.php
+│   ├── pie.php
+│   └── portada.php
+├── partidas.php
+└── planificar.php
+</div></code></pre>
+<h2 id="estructura-base-de-datos">Estructura base de datos</h2>
+<p>La base de datos ya está creada con datos de ejemplo. El diagrama de la misma sería el siguiente:</p>
+<pre><code class="language-mermaid"><div class="mermaid">erDiagram
+    juegos {
+        int id PK "Primary Key"
+        varchar titulo "Título del juego"
+        varchar descripcion "Descripción del juego"
+        varchar imagen "Ruta de la imagen"
+        int num_jugadores "Número máximo de jugadores"
+    }
+
+    partidas {
+        int id PK "Primary Key"
+        int juego_id FK "Foreign Key a juegos(id)"
+        date fecha "Fecha de la partida"
+        time hora "Hora de la partida"
+        int master_id FK "Foreign Key a socios(id)"
+    }
+
+    socios {
+        int id PK "Primary Key"
+        varchar username "Nombre de usuario"
+        varchar nombre "Nombre del socio"
+        varchar apellidos "Apellidos del socio"
+        tinyint elegible_master "Si el socio puede ser master (1/0)"
+    }
+
+    socios_partida {
+        int id PK "Primary Key"
+        int partida_id FK "Foreign Key a partidas(id)"
+        int socio_id FK "Foreign Key a socios(id)"
+        int puntuacion "Puntuación del socio en la partida (opcional)"
+    }
+
+    juegos ||--o{ partidas : "tiene"
+    partidas ||--|| socios : "tiene un master"
+    partidas ||--o{ socios_partida : "tiene"
+    socios ||--o{ socios_partida : "juega en"
+</div></code></pre>
+<hr>
+<h2 id="recuerda">Recuerda</h2>
+<p>Utiliza <strong>str_replace</strong> para generar las url sustituyendo el &amp; de los títulos de los juegos por una codificación (;amp%) y para el proceso inverso al recuperar el campo.</p>
+<p>Recuerda capturar las <strong><strong>excepciones</strong></strong> en el manejo de las conexiones a la base de datos.</p>
+<p>Puedes usar el siguiente código HTML para las alertas:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'alert alert-danger'</span> <span class="hljs-attr">role</span>=<span class="hljs-string">'alert'</span>&gt;</span>mensaje<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div></code></pre>
+<p>Tienes el código SQL de las consultas en el propio fichero php para implementar las funciones.</p>
+<hr>
+<h2 id="entrega">Entrega</h2>
+<p>En el aula virtual FPaDistancia, dispones de una tarea <em>Examen primera evaluación</em> para realizar la entrega.</p>
+<p>Cuando hayas terminado, comprime la carpeta entera (docker-lamp-eva1) en un fichero con tu nombre siguiendo este patrón:</p>
+<p><strong>apellido1_apellido2_nombre.zip</strong></p>
+<p>Sube el archivo a la tarea del aula virtual.</p>
+<p>La hora límite de entrega es las 21:50.</p>
+
+</body>
+</html>
