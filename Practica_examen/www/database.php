@@ -19,8 +19,8 @@ function conectaMy()
 
 function desconectaMy($conexion)
 {
-    $conn = conectaMy();
-    $conn->close();
+    
+    $conexion->close();
 }
 
 // conectaPDO: devuelve una conexión a la base de datos `pifias` mediante PDO. [0.5]
