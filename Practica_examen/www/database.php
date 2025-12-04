@@ -36,9 +36,11 @@ function conectaPDO()
     ];
     try {
         $connPDO = new PDO("mysql:host={$mysqlData['host']};dbname={$mysqlData['dbname']}", $mysqlData['user'], $mysqlData['pass']);
-        $connPDO = new PDO("mysql:host={$mysqlData['host']};dbname={$mysqlData['dbname']}", $mysqlData['user'], $mysqlData['pass']);
         $connPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $connPDO;
+        if ($connPDO->connect_error) {
+            throw new Exception("Error de conexión: " . $connPDO->connect_error);
+        }
     } catch (PDOException $e) {
         echo "<div class='alert alert-danger' role='alert'>" . $e->getMessage() . "</div>";
         return null;
