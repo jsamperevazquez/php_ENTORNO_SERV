@@ -9,6 +9,10 @@ include("utils.php");
  * Consultamos y mostramos los datos de la tabla 'tareas'
  */
 
+if (!$conexion) {
+    die("Error: No se pudo conectar a la base de datos.");
+}
+
 $sql = "SELECT * FROM tareas ORDER BY fecha_creacion DESC";
 $stmt = $conexion->prepare($sql);
 $stmt->execute();

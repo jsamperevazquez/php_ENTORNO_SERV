@@ -1,9 +1,15 @@
 <?php
 $config = include 'config.php';
+
+/**
+ * Función que comprueba si un caracter está en el pattern
+ * @param string $caracter
+ * @return string
+ */
 function comprobar_caracter(string $caracter)
 {
     $caracter = trim($caracter);
-    if (preg_match_all("/[0123456789]/", $caracter)) {
+    if (preg_match_all("/[0123456789]/", $caracter)) { //Si es un número
         return "Caracter: {$caracter}";
     }
 }
@@ -20,7 +26,7 @@ function numero_elevado(int $a, int $b): int
 
 function es_vocal(string $caracter): bool
 {
-    return (preg_match_all("/[aeiouAEIOU]/", $caracter)) ? true : false;
+    return (preg_match_all("/[aeiouAEIOU]/", $caracter)) ? true : false; //Si es vocal
 }
 
 function par_impar(int $num): string

@@ -22,14 +22,14 @@ class Tareas
         $sql_select = "SELECT * FROM $tabla";
         $resultados = $conn->query($sql_select);
 
-        if (!$resultados) {
+        if (!$resultados) { // Verificar si la consulta fue exitosa
             error_log("Error en consulta: " . $conn->error);
             return [];
         }
 
-        $tareas = $resultados->fetch_all(MYSQLI_ASSOC);
+        $tareas = $resultados->fetch_all(MYSQLI_ASSOC); // Obtener todas las filas como arrays asociativos
 
-        $resultados->free();
+        $resultados->free(); // Liberar el conjunto de resultados
 
         return $tareas;
     }
@@ -50,7 +50,7 @@ class Tareas
 
         $tareas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        return $tareas ?: [];
+        return $tareas ?: []; // Retorna arreglo vacío si no hay resultados
     }
 
     /**
