@@ -36,16 +36,14 @@ function conectaPDO()
     ];
     try {
         $connPDO = new PDO("mysql:host={$mysqlData['host']};dbname={$mysqlData['dbname']}", $mysqlData['user'], $mysqlData['pass']);
-        $connPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);    
-        if ($connPDO->errorCode()) {
-            throw new Exception("Error de conexión: " . $connPDO->errorInfo());
-        }
+        $connPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $connPDO;
     } catch (PDOException $e) {
         echo "<div class='alert alert-danger' role='alert'>" . $e->getMessage() . "</div>";
         return null;
     }
 }
+
 
 // listaJuegos: devuelve la lista completa de juegos de la aplicación en un array. En caso de ocurrir un error, devolverá el mensaje del error. Debe usarse una conexión mediante MySQLi orientado a objetos. [0.75]
 // SELECT * FROM juegos
